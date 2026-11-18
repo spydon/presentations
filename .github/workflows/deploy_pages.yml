@@ -35,7 +35,7 @@ jobs:
       - run: melos run build_web --no-select
 
       # Every presentation is served from
-      # https://spydon.github.io/presentations/<directory>/.
+      # https://presentations.spydon.dev/<directory>/.
       - name: Assemble the site
         run: |
           mkdir -p _site

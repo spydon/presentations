@@ -19,9 +19,9 @@ melos:
 
   scripts:
     build_web:
-      description: Build every presentation for the web, served from /presentations/<directory>/.
+      description: Build every presentation for the web, served from /<directory>/.
       exec:
-        command: flutter build web --release --base-href "/presentations/\$(basename $MELOS_PACKAGE_PATH)/"
+        command: flutter build web --release --base-href "/\$(basename $MELOS_PACKAGE_PATH)/"
         failFast: true
       packageFilters:
         dirExists: web

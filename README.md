@@ -2,7 +2,7 @@
 
 Slide decks built with [flutter_deck](https://pub.dev/packages/flutter_deck),
 one Flutter project per directory, published at
-<https://spydon.github.io/presentations/>.
+<https://presentations.spydon.dev/>.
 
 | Directory                                    | Talk                              | Length    |
 | -------------------------------------------- | --------------------------------- | --------- |
@@ -39,4 +39,4 @@ melos test
 `.github/workflows/deploy_pages.yml` checks the formatting, analyzes and tests
 every package, and builds every presentation with `melos run build_web` on
 every pull request. On push to `main` it deploys them, each under
-`/presentations/<directory>/` next to the landing page.
+`/<directory>/` next to the landing page.
