@@ -6,6 +6,7 @@ import 'package:flutter_deck/flutter_deck.dart';
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter_v3/slides/agent_slides.dart';
 import 'package:supabase_flutter_v3/slides/intro_slides.dart';
+import 'package:supabase_flutter_v3/slides/passkey_slides.dart';
 import 'package:supabase_flutter_v3/slides/type_safety_slides.dart';
 
 class DeckApp extends StatelessWidget {
@@ -21,6 +22,7 @@ class DeckApp extends StatelessWidget {
     FunctionsSlide(),
     AuthEventsSlide(),
     WhyTypesSlide(),
+    PasskeysSlide(),
     OutroSlide(),
   ];
 
