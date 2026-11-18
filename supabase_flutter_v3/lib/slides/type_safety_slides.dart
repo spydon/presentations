@@ -5,6 +5,7 @@ import 'package:flutter_deck/flutter_deck.dart';
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter_v3/brand.dart';
 import 'package:supabase_flutter_v3/widgets/slide_parts.dart';
+import 'package:supabase_flutter_v3/widgets/sql_code.dart';
 
 class TypeSafetySlide extends FlutterDeckSlideWidget {
   const TypeSafetySlide({super.key})
@@ -40,8 +41,7 @@ class TypeSafetySlide extends FlutterDeckSlideWidget {
           Row(
             children: [
               Expanded(
-                child: SlideCode(
-                  language: 'sql',
+                child: SqlCode(
                   fileName: 'migration.sql',
                   fontSize: 26,
                   code: '''
