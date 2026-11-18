@@ -8,8 +8,7 @@ v3. It covers:
   `dart run skills@ get -p <package>`, that teach coding agents how to migrate
   to v3, generate the typed schema with the Supabase CLI and write tests.
 - **Type safety**: the generated schema, the typed `table()` API and typed
-  database function calls, with before and after comparisons against v2, and
-  the sealed auth events.
+  database function calls, with before and after comparisons against v2.
 - **Passkeys**: signing in without a password.
 
 ## Running

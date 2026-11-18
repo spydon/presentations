@@ -20,7 +20,6 @@ class DeckApp extends StatelessWidget {
     ReadingSlide(),
     WritingSlide(),
     FunctionsSlide(),
-    AuthEventsSlide(),
     WhyTypesSlide(),
     PasskeysSlide(),
     OutroSlide(),
