@@ -5,6 +5,7 @@ import 'package:flutter_deck/flutter_deck.dart';
 // use the same library rather than package:material_ui.
 // ignore: deprecated_member_use
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 /// A [FlutterDeckApp] with the theme and configuration shared by the
 /// presentations: 1080p slides, a dark Supabase theme and wider margins.
@@ -36,6 +37,18 @@ class PresentationApp extends StatelessWidget {
           end: Alignment.bottomRight,
           colors: [Color(0xFF1C1C1C), Color(0xFF14261D)],
         ),
+      ),
+    ),
+    controls: const FlutterDeckControlsConfiguration(
+      shortcuts: FlutterDeckShortcutsConfiguration(
+        nextSlide: {
+          SingleActivator(LogicalKeyboardKey.arrowRight),
+          SingleActivator(LogicalKeyboardKey.keyL),
+        },
+        previousSlide: {
+          SingleActivator(LogicalKeyboardKey.arrowLeft),
+          SingleActivator(LogicalKeyboardKey.keyH),
+        },
       ),
     ),
     footer: const FlutterDeckFooterConfiguration(showSlideNumbers: true),
