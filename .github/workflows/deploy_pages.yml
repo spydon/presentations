@@ -1,0 +1,67 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          flutter-version: 3.50.0
+          cache: true
+
+      # Every directory with a pubspec.yaml is a presentation, served from
+      # https://spydon.github.io/presentations/<directory>/.
+      - name: Analyze, test and build the presentations
+        run: |
+          mkdir -p _site
+          cp index.html _site/
+          for pubspec in */pubspec.yaml; do
+            dir=$(dirname "$pubspec")
+            echo "::group::$dir"
+            (
+              cd "$dir"
+              flutter pub get
+              flutter analyze
+              flutter test
+              flutter build web --release --base-href "/presentations/$dir/"
+            )
+            cp -r "$dir/build/web" "_site/$dir"
+            echo "::endgroup::"
+          done
+
+      - if: github.event_name != 'pull_request'
+        uses: actions/configure-pages@v5
+
+      - if: github.event_name != 'pull_request'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    if: github.event_name != 'pull_request'
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
