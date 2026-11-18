@@ -3,7 +3,8 @@
 // ignore: deprecated_member_use
 import 'package:flutter/material.dart';
 
-/// The Supabase colors and the fonts shared by the presentations.
+/// The Supabase colors and the fonts shared by the presentations, and a theme
+/// for both the slides and the pages the audience opens on their phones.
 abstract final class Brand {
   static const fontFamily = 'packages/common/Outfit';
   static const monospaceFontFamily = 'packages/common/JetBrainsMono';
@@ -28,6 +29,36 @@ abstract final class Brand {
       scaffoldBackgroundColor: background,
       fontFamily: fontFamily,
       useMaterial3: true,
+      inputDecorationTheme: const InputDecorationTheme(
+        filled: true,
+        fillColor: surface,
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.all(Radius.circular(12)),
+          borderSide: BorderSide.none,
+        ),
+      ),
+      filledButtonTheme: FilledButtonThemeData(
+        style: FilledButton.styleFrom(
+          backgroundColor: green,
+          foregroundColor: Colors.black,
+          minimumSize: const Size.fromHeight(52),
+          textStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12),
+          ),
+        ),
+      ),
+      outlinedButtonTheme: OutlinedButtonThemeData(
+        style: OutlinedButton.styleFrom(
+          foregroundColor: green,
+          minimumSize: const Size.fromHeight(52),
+          side: const BorderSide(color: green),
+          textStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12),
+          ),
+        ),
+      ),
     );
   }
 }
