@@ -1,0 +1,27 @@
+name: supabase_flutter_passkeys
+description: "A flutter_deck presentation about passkeys in supabase_flutter, with a live Q&A."
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.14.0
+
+resolution: workspace
+
+dependencies:
+  flutter:
+    sdk: flutter
+  common: any
+  flutter_deck: ^0.29.0
+  passkeys: ^2.24.2
+  qr_flutter: ^4.1.0
+  supabase_flutter: 3.0.0-dev.17
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+  supabase_typegen: ^0.9.0
+
+flutter:
+  uses-material-design: true

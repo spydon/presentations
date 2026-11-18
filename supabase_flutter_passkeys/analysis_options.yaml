@@ -1,0 +1,11 @@
+include: package:flutter_lints/flutter.yaml
+
+analyzer:
+  errors:
+    # The typed table API and passkeys are experimental in supabase_flutter v3.
+    experimental_member_use: ignore
+  exclude:
+    - build/**
+    - web/**
+    - macos/**
+    - linux/**
