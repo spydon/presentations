@@ -1,0 +1,26 @@
+name: supabase_flutter_v3
+description: "A flutter_deck presentation about supabase_flutter v3."
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.14.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_deck: ^0.29.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true
+
+  # Outfit by Rodrigo Fuenzalida, SIL Open Font License (assets/fonts/Outfit-OFL.txt).
+  fonts:
+    - family: Outfit
+      fonts:
+        - asset: assets/fonts/Outfit-Variable.ttf
