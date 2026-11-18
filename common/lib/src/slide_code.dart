@@ -11,6 +11,7 @@ class SlideCode extends StatelessWidget {
     required this.code,
     this.fileName,
     this.language = 'dart',
+    this.highlightedLines = const [],
     this.fontSize = 28,
     super.key,
   });
@@ -18,6 +19,9 @@ class SlideCode extends StatelessWidget {
   final String code;
   final String? fileName;
   final String language;
+
+  /// Zero-indexed lines to highlight, dimming the rest.
+  final List<int> highlightedLines;
   final double fontSize;
 
   @override
@@ -35,6 +39,7 @@ class SlideCode extends StatelessWidget {
         code: code,
         fileName: fileName,
         language: language,
+        highlightedLines: highlightedLines,
       ),
     );
   }
