@@ -12,12 +12,15 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_deck: ^0.29.0
+  flutter_svg: ^2.4.0
   syntax_highlight: ^0.5.0
 
 dev_dependencies:
   flutter_lints: ^6.0.0
 
 flutter:
+  assets:
+    - assets/images/
   # Use the fonts through Brand.fontFamily and Brand.monospaceFontFamily.
   fonts:
     # Outfit by Rodrigo Fuenzalida, SIL Open Font License (assets/fonts/Outfit-OFL.txt).
