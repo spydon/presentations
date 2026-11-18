@@ -90,7 +90,7 @@ class OutroSlide extends FlutterDeckSlideWidget {
           title: 'Try it today',
           header: FlutterDeckHeaderConfiguration(title: 'Try it today'),
           speakerNotes:
-              '- v3 is in dev releases on pub.dev right now.\n'
+              '- v3 is in beta on pub.dev right now.\n'
               '- Install the skills and let your agent do the migration.\n'
               '- Feedback on GitHub is very welcome before the stable release.',
         ),
@@ -106,7 +106,7 @@ class OutroSlide extends FlutterDeckSlideWidget {
           children: [
             Terminal(
               commands: [
-                'flutter pub add supabase_flutter:^3.0.0-dev',
+                'flutter pub add supabase_flutter:^3.0.0-beta',
                 'dart run skills@ get -p supabase_flutter',
                 'dart run skills@ get -p supabase_typegen',
                 'dart run skills@ get -p supabase_test',
