@@ -188,6 +188,58 @@ Books.price.lt('ten');''',
   }
 }
 
+class FunctionsSlide extends FlutterDeckSlideWidget {
+  const FunctionsSlide({super.key})
+    : super(
+        configuration: const FlutterDeckSlideConfiguration(
+          route: '/functions',
+          title: 'Calling database functions',
+          steps: 2,
+          header: FlutterDeckHeaderConfiguration(
+            title: 'Calling database functions',
+          ),
+          speakerNotes:
+              '- Database functions get the same treatment as tables.\n'
+              '- v2: the function name and its parameters are strings in a map, and the result is dynamic.\n'
+              '- v3: the generator adds a method on supabase.rpc for every function, with typed parameters and a typed result.\n'
+              '- A function returning rows of a table resolves to that row type, here BooksRow.',
+        ),
+      );
+
+  @override
+  Widget build(BuildContext context) {
+    return FlutterDeckSlide.split(
+      leftBuilder: (context) => const ComparisonCode(
+        label: 'Before: v2',
+        isAfter: false,
+        code: '''
+final books = await supabase.rpc(
+  'search_books',
+  params: {'query': 'dart'},
+);
+
+final title = books.first['title'] as String;''',
+      ),
+      rightBuilder: (context) => FlutterDeckSlideStepsBuilder(
+        builder: (context, step) => ComparisonCode(
+          label: 'After: v3',
+          isAfter: true,
+          visible: step >= 2,
+          code: '''
+final books = await supabase.rpc
+    .searchBooks(query: 'dart');
+
+final String title = books.first.title;
+
+// Does not compile:
+supabase.rpc.searchBooks(qeury: 'dart');
+supabase.rpc.searchBooks(query: 42);''',
+        ),
+      ),
+    );
+  }
+}
+
 class WhyTypesSlide extends FlutterDeckSlideWidget {
   const WhyTypesSlide({super.key})
     : super(

@@ -18,6 +18,7 @@ class DeckApp extends StatelessWidget {
     TypeSafetySlide(),
     ReadingSlide(),
     WritingSlide(),
+    FunctionsSlide(),
     WhyTypesSlide(),
     OutroSlide(),
   ];
