@@ -7,6 +7,7 @@ export 'src/deck_templates.dart' show DeckInsets;
 export 'src/info_tile.dart';
 export 'src/numbered_step.dart';
 export 'src/pill.dart';
+export 'src/pop_in.dart';
 export 'src/presentation_app.dart';
 export 'src/slide_code.dart';
 export 'src/sql_code.dart';
