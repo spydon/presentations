@@ -24,3 +24,7 @@ melos:
         failFast: true
       packageFilters:
         dirExists: web
+
+    icons:
+      description: Render tool/icon into the favicon of the landing page and the icons of every presentation.
+      run: tool/icon/render.sh
