@@ -65,6 +65,9 @@ create table books (
                   fileName: 'supabase_schema.g.dart',
                   fontSize: 26,
                   code: '''
+// Table, columns and relations
+class Books
+
 // What you read
 extension type BooksRow
 
@@ -72,10 +75,7 @@ extension type BooksRow
 extension type BooksInsert
 
 // What you update
-extension type BooksUpdate
-
-// Table, columns and relations
-class Books''',
+extension type BooksUpdate''',
                 ),
               ),
             ],
