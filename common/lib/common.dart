@@ -1,6 +1,7 @@
 /// Widgets, theme and configuration shared by the presentations.
 library;
 
+export 'src/animated_reorder_column.dart';
 export 'src/brand.dart';
 export 'src/comparison_code.dart';
 export 'src/deck_templates.dart' show DeckInsets;
