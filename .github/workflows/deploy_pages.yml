@@ -39,7 +39,7 @@ jobs:
       - name: Assemble the site
         run: |
           mkdir -p _site
-          cp index.html _site/
+          cp index.html favicon.svg favicon.png _site/
           for web in */build/web; do
             cp -r "$web" "_site/${web%%/*}"
           done
