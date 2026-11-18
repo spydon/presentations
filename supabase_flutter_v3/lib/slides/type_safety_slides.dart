@@ -1,11 +1,9 @@
+import 'package:common/common.dart';
 import 'package:flutter_deck/flutter_deck.dart';
 // flutter_deck is built on package:flutter/material.dart, so the app has to
 // use the same library rather than package:material_ui.
 // ignore: deprecated_member_use
 import 'package:flutter/material.dart';
-import 'package:supabase_flutter_v3/brand.dart';
-import 'package:supabase_flutter_v3/widgets/slide_parts.dart';
-import 'package:supabase_flutter_v3/widgets/sql_code.dart';
 
 class TypeSafetySlide extends FlutterDeckSlideWidget {
   const TypeSafetySlide({super.key})

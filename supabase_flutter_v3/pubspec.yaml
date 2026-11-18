@@ -11,8 +11,8 @@ resolution: workspace
 dependencies:
   flutter:
     sdk: flutter
+  common: any
   flutter_deck: ^0.29.0
-  syntax_highlight: ^0.5.0
 
 dev_dependencies:
   flutter_test:
@@ -22,8 +22,3 @@ dev_dependencies:
 flutter:
   uses-material-design: true
 
-  # Outfit by Rodrigo Fuenzalida, SIL Open Font License (assets/fonts/Outfit-OFL.txt).
-  fonts:
-    - family: Outfit
-      fonts:
-        - asset: assets/fonts/Outfit-Variable.ttf

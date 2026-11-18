@@ -5,6 +5,7 @@ environment:
   sdk: ^3.14.0
 
 workspace:
+  - common
   - supabase_flutter_v3
 
 dev_dependencies:

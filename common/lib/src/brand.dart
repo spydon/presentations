@@ -3,7 +3,10 @@
 // ignore: deprecated_member_use
 import 'package:flutter/material.dart';
 
+/// The Supabase colors and font shared by the presentations.
 abstract final class Brand {
+  static const fontFamily = 'packages/common/Outfit';
+
   static const green = Color(0xFF3ECF8E);
   static const red = Color(0xFFF2777A);
   static const background = Color(0xFF1C1C1C);
@@ -22,7 +25,7 @@ abstract final class Brand {
     return ThemeData(
       colorScheme: scheme,
       scaffoldBackgroundColor: background,
-      fontFamily: 'Outfit',
+      fontFamily: fontFamily,
       useMaterial3: true,
     );
   }

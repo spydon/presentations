@@ -4,7 +4,7 @@ import 'dart:convert';
 // use the same library rather than package:material_ui.
 // ignore: deprecated_member_use
 import 'package:flutter/material.dart';
-import 'package:supabase_flutter_v3/brand.dart';
+import 'package:common/src/brand.dart';
 import 'package:syntax_highlight/syntax_highlight.dart';
 
 /// A SQL listing styled like [FlutterDeckCodeHighlight].
