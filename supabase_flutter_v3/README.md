@@ -2,13 +2,15 @@
 
 A two minute [flutter_deck](https://pub.dev/packages/flutter_deck)
 presentation about [supabase_flutter](https://pub.dev/packages/supabase_flutter)
-v3. It covers two themes:
+v3. It covers:
 
 - **Built for agents**: the package skills, installed with
   `dart run skills@ get -p <package>`, that teach coding agents how to migrate
   to v3, generate the typed schema with the Supabase CLI and write tests.
-- **Type safety**: the generated schema and the typed `table()` API, with a
-  before and after comparison against v2.
+- **Type safety**: the generated schema, the typed `table()` API and typed
+  database function calls, with before and after comparisons against v2, and
+  the sealed auth events.
+- **Passkeys**: signing in without a password.
 
 ## Running
 
