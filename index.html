@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Presentations</title>
+  <meta name="description" content="Slide decks built with flutter_deck.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --green: #3ecf8e;
+      --surface: #2a2a2a;
+      --surface-high: #353535;
+      --text: #ededed;
+      --muted: #a0a0a0;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: 'Outfit', system-ui, sans-serif;
+      color: var(--text);
+      background: linear-gradient(135deg, #1c1c1c, #14261d) fixed;
+    }
+
+    main {
+      max-width: 880px;
+      margin: 0 auto;
+      padding: 96px 24px;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: clamp(40px, 7vw, 64px);
+      font-weight: 700;
+    }
+
+    .subtitle {
+      margin: 0 0 56px;
+      font-size: 20px;
+      color: var(--muted);
+    }
+
+    .subtitle a {
+      color: var(--green);
+    }
+
+    ul {
+      display: grid;
+      gap: 20px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .card {
+      display: block;
+      padding: 28px 32px;
+      border: 1px solid var(--surface-high);
+      border-radius: 20px;
+      background: var(--surface);
+      color: inherit;
+      text-decoration: none;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .card:hover,
+    .card:focus-visible {
+      border-color: var(--green);
+      transform: translateY(-2px);
+      outline: none;
+    }
+
+    .card h2 {
+      margin: 0 0 8px;
+      font-size: 28px;
+      font-weight: 600;
+    }
+
+    .card p {
+      margin: 0;
+      font-size: 18px;
+      line-height: 1.45;
+      color: var(--muted);
+    }
+
+    .meta {
+      display: inline-block;
+      margin-top: 16px;
+      padding: 4px 14px;
+      border: 1px solid var(--green);
+      border-radius: 999px;
+      font-size: 15px;
+      color: var(--green);
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Presentations</h1>
+    <p class="subtitle">
+      Slide decks built with <a href="https://pub.dev/packages/flutter_deck">flutter_deck</a>.
+      Use the arrow keys to move between slides.
+    </p>
+    <ul>
+      <li>
+        <a class="card" href="supabase_flutter_v3/">
+          <h2>What's new in supabase_flutter v3</h2>
+          <p>Package skills that make agents write correct v3 code, and the new type safe table API.</p>
+          <span class="meta">2 minutes</span>
+        </a>
+      </li>
+    </ul>
+  </main>
+</body>
+</html>
