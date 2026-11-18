@@ -31,11 +31,12 @@ Everything deploys on push to `main`:
 - **The database and auth settings** go to the Supabase project through the
   Supabase GitHub integration, with `supabase_flutter_passkeys` as its
   Supabase directory and "Deploy to production" turned on. It applies the
-  migrations in `supabase/migrations/`, and the `[auth]` settings of the
-  `[remotes.production]` block in `supabase/config.toml`: passkeys enabled with
-  `presentations.spydon.dev` as the relying party, and email confirmation
-  turned off, since guest accounts get a generated address on
-  `GUEST_EMAIL_DOMAIN` that never receives mail.
+  migrations in `supabase/migrations/` and the settings in
+  `supabase/config.toml`. They hold the production values, since the
+  dashboard compares the project against them. Email confirmation is turned
+  off, since guest accounts get a generated address on `GUEST_EMAIL_DOMAIN`
+  that never receives mail. Only the relying party differs per environment:
+  `[remotes.production.auth.webauthn]` sets it to `presentations.spydon.dev`.
 
 Passkeys only work over HTTPS on the relying party domain, so phones have to
 use the deployed site.
