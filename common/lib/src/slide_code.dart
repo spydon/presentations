@@ -26,7 +26,7 @@ class SlideCode extends StatelessWidget {
       data: FlutterDeckCodeHighlightTheme.of(context).copyWith(
         backgroundColor: Brand.surface,
         textStyle: TextStyle(
-          fontFamily: 'monospace',
+          fontFamily: Brand.monospaceFontFamily,
           fontSize: fontSize,
           height: 1.4,
         ),

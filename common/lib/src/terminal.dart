@@ -23,7 +23,7 @@ class Terminal extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final style = TextStyle(
-      fontFamily: 'monospace',
+      fontFamily: Brand.monospaceFontFamily,
       fontSize: fontSize,
       height: 1.6,
       color: Brand.text,

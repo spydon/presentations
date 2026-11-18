@@ -18,9 +18,13 @@ dev_dependencies:
   flutter_lints: ^6.0.0
 
 flutter:
-  # Outfit by Rodrigo Fuenzalida, SIL Open Font License (assets/fonts/Outfit-OFL.txt).
-  # Use it through Brand.fontFamily.
+  # Use the fonts through Brand.fontFamily and Brand.monospaceFontFamily.
   fonts:
+    # Outfit by Rodrigo Fuenzalida, SIL Open Font License (assets/fonts/Outfit-OFL.txt).
     - family: Outfit
       fonts:
         - asset: assets/fonts/Outfit-Variable.ttf
+    # JetBrains Mono, SIL Open Font License (assets/fonts/JetBrainsMono-OFL.txt).
+    - family: JetBrainsMono
+      fonts:
+        - asset: assets/fonts/JetBrainsMono-Variable.ttf

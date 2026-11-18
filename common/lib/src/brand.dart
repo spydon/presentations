@@ -3,9 +3,10 @@
 // ignore: deprecated_member_use
 import 'package:flutter/material.dart';
 
-/// The Supabase colors and font shared by the presentations.
+/// The Supabase colors and the fonts shared by the presentations.
 abstract final class Brand {
   static const fontFamily = 'packages/common/Outfit';
+  static const monospaceFontFamily = 'packages/common/JetBrainsMono';
 
   static const green = Color(0xFF3ECF8E);
   static const red = Color(0xFFF2777A);

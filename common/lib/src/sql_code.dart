@@ -35,7 +35,7 @@ class SqlCode extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final style = TextStyle(
-      fontFamily: 'monospace',
+      fontFamily: Brand.monospaceFontFamily,
       fontSize: fontSize,
       height: 1.4,
       color: Brand.text,
