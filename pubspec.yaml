@@ -1,0 +1,16 @@
+name: presentations_workspace
+publish_to: none
+
+environment:
+  sdk: ^3.14.0
+
+workspace:
+  - supabase_flutter_v3
+
+dev_dependencies:
+  melos: ^8.10.1
+
+melos:
+  ide:
+    intellij:
+      enabled: false
