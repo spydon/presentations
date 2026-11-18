@@ -107,16 +107,12 @@ class OutroSlide extends FlutterDeckSlideWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Terminal(
-              commands: [
-                'flutter pub add supabase_flutter:^3.0.0-beta',
-                'dart run skills@ get -p supabase_flutter',
-                'dart run skills@ get -p supabase_typegen',
-                'dart run skills@ get -p supabase_test',
-              ],
+              commands: ['flutter pub add supabase_flutter:^3.0.0-beta'],
             ),
             SizedBox(height: 56),
             Text(
-              'Then ask your agent to "migrate this app to supabase_flutter v3"',
+              'Then ask your agent to "migrate this app to supabase_flutter v3 '
+              'using the package skills"',
               textAlign: TextAlign.center,
               style: TextStyle(fontSize: 40, color: Brand.mutedText),
             ),
