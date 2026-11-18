@@ -4,10 +4,11 @@ Slide decks built with [flutter_deck](https://pub.dev/packages/flutter_deck),
 one Flutter project per directory, published at
 <https://presentations.spydon.dev/>.
 
-| Directory                                    | Talk                              | Length    |
-| -------------------------------------------- | --------------------------------- | --------- |
-| [`supabase_flutter_v3`](supabase_flutter_v3) | What's new in supabase_flutter v3 | 2 minutes |
-| [`supabase_py_v3`](supabase_py_v3)           | What's new in supabase-py v3      | 2 minutes |
+| Directory                                                | Talk                              | Length     |
+| -------------------------------------------------------- | --------------------------------- | ---------- |
+| [`supabase_flutter_v3`](supabase_flutter_v3)             | What's new in supabase_flutter v3 | 2 minutes  |
+| [`supabase_py_v3`](supabase_py_v3)                       | What's new in supabase-py v3      | 2 minutes  |
+| [`supabase_flutter_passkeys`](supabase_flutter_passkeys) | Passkeys with supabase_flutter    | 30 minutes |
 
 ## Shared code
 
