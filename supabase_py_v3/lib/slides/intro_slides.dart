@@ -46,9 +46,9 @@ class TitleSlide extends FlutterDeckSlideWidget {
             Row(
               mainAxisSize: MainAxisSize.min,
               children: [
-                _Pill(icon: Icons.schema_outlined, text: 'Generated types'),
+                Pill(icon: Icons.schema_outlined, text: 'Generated types'),
                 SizedBox(width: 32),
-                _Pill(
+                Pill(
                   icon: Icons.verified_outlined,
                   text: 'Type checked queries',
                 ),
@@ -56,32 +56,6 @@ class TitleSlide extends FlutterDeckSlideWidget {
             ),
           ],
         ),
-      ),
-    );
-  }
-}
-
-class _Pill extends StatelessWidget {
-  const _Pill({required this.icon, required this.text});
-
-  final IconData icon;
-  final String text;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 36, vertical: 16),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(48),
-        border: Border.all(color: Brand.green, width: 2),
-      ),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Icon(icon, color: Brand.green, size: 40),
-          const SizedBox(width: 16),
-          Text(text, style: const TextStyle(fontSize: 36, color: Brand.green)),
-        ],
       ),
     );
   }
