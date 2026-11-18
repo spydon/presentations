@@ -11,7 +11,6 @@ class SlideCode extends StatelessWidget {
     required this.code,
     this.fileName,
     this.language = 'dart',
-    this.highlightedLines = const [],
     this.fontSize = 28,
     super.key,
   });
@@ -19,9 +18,6 @@ class SlideCode extends StatelessWidget {
   final String code;
   final String? fileName;
   final String language;
-
-  /// Zero-indexed line numbers.
-  final List<int> highlightedLines;
   final double fontSize;
 
   @override
@@ -39,7 +35,6 @@ class SlideCode extends StatelessWidget {
         code: code,
         fileName: fileName,
         language: language,
-        highlightedLines: highlightedLines,
       ),
     );
   }
@@ -194,7 +189,6 @@ class ComparisonCode extends StatelessWidget {
     required this.label,
     required this.code,
     required this.isAfter,
-    this.highlightedLines = const [],
     this.visible = true,
     super.key,
   });
@@ -202,7 +196,6 @@ class ComparisonCode extends StatelessWidget {
   final String label;
   final String code;
   final bool isAfter;
-  final List<int> highlightedLines;
   final bool visible;
 
   @override
@@ -234,11 +227,7 @@ class ComparisonCode extends StatelessWidget {
             ],
           ),
           const SizedBox(height: 20),
-          SlideCode(
-            code: code,
-            fontSize: 24,
-            highlightedLines: highlightedLines,
-          ),
+          SlideCode(code: code, fontSize: 24),
         ],
       ),
     );

@@ -112,7 +112,6 @@ class ReadingSlide extends FlutterDeckSlideWidget {
       leftBuilder: (context) => const ComparisonCode(
         label: 'Before: v2',
         isAfter: false,
-        highlightedLines: [1, 3, 4, 6],
         code: '''
 final books = await supabase
     .from('books')
@@ -127,7 +126,6 @@ final title = books.first['title'] as String;''',
           label: 'After: v3',
           isAfter: true,
           visible: step >= 2,
-          highlightedLines: const [1, 3, 4, 6],
           code: '''
 final books = await supabase
     .table(Books.table)
@@ -163,7 +161,6 @@ class WritingSlide extends FlutterDeckSlideWidget {
       leftBuilder: (context) => const ComparisonCode(
         label: 'Before: v2',
         isAfter: false,
-        highlightedLines: [2, 4, 5],
         code: '''
 await supabase.from('books').insert({
   'author_id': 2,
@@ -177,7 +174,6 @@ await supabase.from('books').insert({
           label: 'After: v3',
           isAfter: true,
           visible: step >= 2,
-          highlightedLines: const [1, 3, 6, 7, 8],
           code: '''
 await supabase
     .table(Books.table)
