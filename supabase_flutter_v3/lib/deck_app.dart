@@ -14,7 +14,6 @@ class DeckApp extends StatelessWidget {
 
   static const slides = <FlutterDeckSlideWidget>[
     TitleSlide(),
-    TrainedOnV2Slide(),
     PackageSkillsSlide(),
     TypeSafetySlide(),
     ReadingSlide(),

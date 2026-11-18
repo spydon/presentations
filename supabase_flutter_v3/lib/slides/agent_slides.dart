@@ -5,30 +5,6 @@ import 'package:flutter_deck/flutter_deck.dart';
 // ignore: deprecated_member_use
 import 'package:flutter/material.dart';
 
-class TrainedOnV2Slide extends FlutterDeckSlideWidget {
-  const TrainedOnV2Slide({super.key})
-    : super(
-        configuration: const FlutterDeckSlideConfiguration(
-          route: '/trained-on-v2',
-          title: 'Your agent was trained on v2',
-          speakerNotes:
-              '- Every model out there learned supabase_flutter from years of v2 examples.\n'
-              '- Ask it to write v3 code and it confidently writes v2 code that does not compile.\n'
-              '- So v3 ships the knowledge together with the package.',
-        ),
-      );
-
-  @override
-  Widget build(BuildContext context) {
-    return FlutterDeckSlide.bigFact(
-      title: 'Your agent was trained on v2',
-      subtitle:
-          'So it confidently writes code that no longer compiles. '
-          'v3 ships the fix inside the package.',
-    );
-  }
-}
-
 class PackageSkillsSlide extends FlutterDeckSlideWidget {
   const PackageSkillsSlide({super.key})
     : super(
