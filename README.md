@@ -7,6 +7,7 @@ one Flutter project per directory, published at
 | Directory                                    | Talk                              | Length    |
 | -------------------------------------------- | --------------------------------- | --------- |
 | [`supabase_flutter_v3`](supabase_flutter_v3) | What's new in supabase_flutter v3 | 2 minutes |
+| [`supabase_py_v3`](supabase_py_v3)           | What's new in supabase-py v3      | 2 minutes |
 
 ## Shared code
 
