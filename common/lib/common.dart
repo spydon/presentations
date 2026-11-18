@@ -10,5 +10,6 @@ export 'src/pill.dart';
 export 'src/presentation_app.dart';
 export 'src/slide_code.dart';
 export 'src/sql_code.dart';
+export 'src/stepped_bullet_list.dart';
 export 'src/supabase_logo.dart';
 export 'src/terminal.dart';
