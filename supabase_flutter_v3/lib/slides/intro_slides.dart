@@ -25,6 +25,8 @@ class TitleSlide extends FlutterDeckSlideWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
+            SupabaseLogo(height: 96),
+            SizedBox(height: 64),
             Text(
               'supabase_flutter v3',
               textAlign: TextAlign.center,
