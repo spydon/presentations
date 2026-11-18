@@ -221,7 +221,7 @@ class FunctionsSlide extends FlutterDeckSlideWidget {
         code: '''
 response = supabase.rpc(
     "search_books",
-    {"query": "python"},
+    {"query": "dune"},
 ).execute()
 
 title = response.data[0]["title"]''',
@@ -234,13 +234,13 @@ title = response.data[0]["title"]''',
           visible: step >= 2,
           code: '''
 books = supabase.rpc(
-    search_books(query="python"),
+    search_books(query="dune"),
 ).execute()
 
 title: str = books[0].title
 
 # Type errors:
-search_books(qeury="python")
+search_books(qeury="dune")
 search_books(query=42)''',
         ),
       ),
