@@ -15,3 +15,12 @@ melos:
   ide:
     intellij:
       enabled: false
+
+  scripts:
+    build_web:
+      description: Build every presentation for the web, served from /presentations/<directory>/.
+      exec:
+        command: flutter build web --release --base-href "/presentations/\$(basename $MELOS_PACKAGE_PATH)/"
+        failFast: true
+      packageFilters:
+        dirExists: web

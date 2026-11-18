@@ -35,6 +35,7 @@ melos test
 3. Run the slides through `PresentationApp` from `package:common`.
 4. Add a card for it to `index.html` and a row to the table above.
 
-`.github/workflows/deploy_pages.yml` analyzes, tests and builds every directory
-that has a `pubspec.yaml` on every pull request, and deploys them on push to
-`main`, each under `/presentations/<directory>/` next to the landing page.
+`.github/workflows/deploy_pages.yml` checks the formatting, analyzes and tests
+every package, and builds every presentation with `melos run build_web` on
+every pull request. On push to `main` it deploys them, each under
+`/presentations/<directory>/` next to the landing page.

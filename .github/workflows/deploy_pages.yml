@@ -27,24 +27,21 @@ jobs:
           flutter-version: 3.50.0
           cache: true
 
-      # Every directory with a pubspec.yaml is a presentation, served from
+      - run: dart pub global activate melos
+      - run: melos bootstrap
+      - run: melos format --output none --set-exit-if-changed
+      - run: melos analyze
+      - run: melos test
+      - run: melos run build_web --no-select
+
+      # Every presentation is served from
       # https://spydon.github.io/presentations/<directory>/.
-      - name: Analyze, test and build the presentations
+      - name: Assemble the site
         run: |
           mkdir -p _site
           cp index.html _site/
-          for pubspec in */pubspec.yaml; do
-            dir=$(dirname "$pubspec")
-            echo "::group::$dir"
-            (
-              cd "$dir"
-              flutter pub get
-              flutter analyze
-              flutter test
-              flutter build web --release --base-href "/presentations/$dir/"
-            )
-            cp -r "$dir/build/web" "_site/$dir"
-            echo "::endgroup::"
+          for web in */build/web; do
+            cp -r "$web" "_site/${web%%/*}"
           done
 
       - if: github.event_name != 'pull_request'
