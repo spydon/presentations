@@ -44,13 +44,11 @@ class TypeSafetySlide extends FlutterDeckSlideWidget {
                   fontSize: 26,
                   code: '''
 create table books (
-  id bigint primary key
-    generated always as identity,
+  id bigint primary key,
   author_id bigint not null,
   title text not null,
   price numeric,
-  created_at timestamptz
-    not null default now()
+  created_at timestamptz not null
 );''',
                 ),
               ),
