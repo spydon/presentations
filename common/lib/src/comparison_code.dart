@@ -11,6 +11,7 @@ class ComparisonCode extends StatelessWidget {
     required this.label,
     required this.code,
     required this.isAfter,
+    this.language = 'dart',
     this.visible = true,
     super.key,
   });
@@ -18,6 +19,7 @@ class ComparisonCode extends StatelessWidget {
   final String label;
   final String code;
   final bool isAfter;
+  final String language;
   final bool visible;
 
   @override
@@ -49,7 +51,7 @@ class ComparisonCode extends StatelessWidget {
             ],
           ),
           const SizedBox(height: 20),
-          SlideCode(code: code, fontSize: 24),
+          SlideCode(code: code, language: language, fontSize: 24),
         ],
       ),
     );
