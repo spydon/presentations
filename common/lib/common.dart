@@ -4,6 +4,7 @@ library;
 export 'src/animated_reorder_column.dart';
 export 'src/brand.dart';
 export 'src/comparison_code.dart';
+export 'src/confetti_burst.dart';
 export 'src/deck_templates.dart' show DeckInsets;
 export 'src/info_tile.dart';
 export 'src/numbered_step.dart';
