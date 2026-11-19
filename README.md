@@ -23,7 +23,7 @@ managed with [Melos](https://melos.invertase.dev):
 
 ```sh
 dart pub global activate melos
-melos bootstrap
+flutter pub get
 melos analyze
 melos test
 ```
