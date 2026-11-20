@@ -12,6 +12,7 @@ export 'src/pill.dart';
 export 'src/pop_in.dart';
 export 'src/presentation_app.dart';
 export 'src/slide_code.dart';
+export 'src/speaker_card.dart';
 export 'src/sql_code.dart';
 export 'src/stepped_bullet_list.dart';
 export 'src/supabase_logo.dart';

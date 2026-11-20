@@ -10,6 +10,8 @@ repository.
   phones.
 - `SlideCode`, `SqlCode`, `ComparisonCode`, `Terminal`, `InfoTile`, `Pill`,
   `NumberedStep` and `SteppedBulletList` are building blocks for slides.
+- `SpeakerCard` introduces a speaker with a photo, roles and links.
+  `SpeakerCard.lukasPhoto` is Lukas' photo from `assets/images/`.
 - `PopIn`, `AnimatedReorderColumn` and `ConfettiBurst` animate live content,
   such as questions from the audience.
 

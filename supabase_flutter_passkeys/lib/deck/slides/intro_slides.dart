@@ -52,6 +52,52 @@ class TitleSlide extends FlutterDeckSlideWidget {
   }
 }
 
+class SpeakerSlide extends FlutterDeckSlideWidget {
+  const SpeakerSlide({super.key})
+    : super(
+        configuration: const FlutterDeckSlideConfiguration(
+          route: '/speaker',
+          title: 'Your host',
+          speakerNotes:
+              '- Introduce yourself.\n'
+              '- Supabase SDK engineer, working on supabase_flutter, Flame core maintainer, and Google Developer Expert for Flutter and Dart.',
+        ),
+      );
+
+  @override
+  Widget build(BuildContext context) {
+    return FlutterDeckSlide.blank(
+      builder: (context) => const Center(
+        child: SpeakerCard(
+          name: 'Lukas Klingsbo',
+          photo: SpeakerCard.lukasPhoto,
+          roles: [
+            SpeakerRole(
+              leading: Icon(Icons.bolt_rounded, color: Brand.green),
+              text: 'Supabase SDK Engineer',
+            ),
+            SpeakerRole(
+              leading: Icon(
+                Icons.local_fire_department_rounded,
+                color: Color(0xFFFF8A3D),
+              ),
+              text: 'Flame core maintainer',
+            ),
+            SpeakerRole(
+              leading: Icon(Icons.flutter_dash, color: Color(0xFF54C5F8)),
+              text: 'Flutter + Dart GDE',
+            ),
+          ],
+          links: [
+            SpeakerLink(icon: Icons.alternate_email, text: 'spydon'),
+            SpeakerLink(icon: Icons.language, text: 'lukas.fyi'),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
 class ProblemSlide extends FlutterDeckSlideWidget {
   const ProblemSlide({super.key})
     : super(

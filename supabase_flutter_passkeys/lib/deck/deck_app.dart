@@ -13,6 +13,7 @@ class DeckApp extends StatelessWidget {
 
   static const slides = <FlutterDeckSlideWidget>[
     TitleSlide(),
+    SpeakerSlide(),
     ProblemSlide(),
     WhatIsAPasskeySlide(),
     AsymmetricCryptographySlide(),
