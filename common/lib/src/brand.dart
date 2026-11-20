@@ -1,7 +1,4 @@
-// flutter_deck is built on package:flutter/material.dart, so the app has to
-// use the same library rather than package:material_ui.
-// ignore: deprecated_member_use
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 /// The Supabase colors and the fonts shared by the presentations, and a theme
 /// for both the slides and the pages the audience opens on their phones.

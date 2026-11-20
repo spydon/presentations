@@ -1,8 +1,5 @@
 import 'package:flutter_deck/flutter_deck.dart';
-// flutter_deck is built on package:flutter/material.dart, so the app has to
-// use the same library rather than package:material_ui.
-// ignore: deprecated_member_use
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 /// Margins of the slide content, wider than the 16 pixels flutter_deck uses so
 /// that text does not hug the edges of the projected slide.

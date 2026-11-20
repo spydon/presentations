@@ -12,7 +12,8 @@ dependencies:
   flutter:
     sdk: flutter
   common: any
-  flutter_deck: ^0.29.0
+  flutter_deck: ^0.30.0
+  material_ui: ^1.11.1
   passkeys: ^2.24.2
   qr_flutter: ^4.1.0
   supabase_flutter: 3.0.0-dev.17

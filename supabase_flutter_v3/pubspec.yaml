@@ -12,7 +12,8 @@ dependencies:
   flutter:
     sdk: flutter
   common: any
-  flutter_deck: ^0.29.0
+  flutter_deck: ^0.30.0
+  material_ui: ^1.11.1
 
 dev_dependencies:
   flutter_test:

@@ -137,6 +137,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.1.3"
+  cnativeapi:
+    dependency: transitive
+    description:
+      name: cnativeapi
+      sha256: "510107ee007a7b4a01aa1eaec3ed097007d65760be6b272f093c4ca34a0d12ff"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.6.1"
   code_assets:
     dependency: transitive
     description:
@@ -177,6 +185,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.0.8"
+  cupertino_ui:
+    dependency: transitive
+    description:
+      name: cupertino_ui
+      sha256: c3eaf7f5bdfee36deb0b14a4cbf7602f1b6b8d8b8576b81f38fc08c25881c94c
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.1.7"
   dart_jsonwebtoken:
     dependency: transitive
     description:
@@ -258,10 +274,10 @@ packages:
     dependency: transitive
     description:
       name: flutter_deck
-      sha256: cfb2db819b68e03bf9036ebbc11dfcbefc36930684a1ca6fa9ea9b0f711b1416
+      sha256: "54f3900e88ae777de3746093d9917fada689cdeda08adc14000561d31f62629a"
       url: "https://pub.dev"
     source: hosted
-    version: "0.29.0"
+    version: "0.30.0"
   flutter_deck_client:
     dependency: transitive
     description:
@@ -278,6 +294,11 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "6.0.0"
+  flutter_localizations:
+    dependency: transitive
+    description: flutter
+    source: sdk
+    version: "0.0.0"
   flutter_svg:
     dependency: transitive
     description:
@@ -308,10 +329,10 @@ packages:
     dependency: transitive
     description:
       name: go_router
-      sha256: d7a3576cb312649eaa51f2356450aed686085fb58fcdebda5b359aa951eef7ea
+      sha256: d4105f50c438c37d0d1372b1fbf1617fe9be398b559fa29d2067756ebbd42b69
       url: "https://pub.dev"
     source: hosted
-    version: "17.5.0"
+    version: "18.1.4"
   graphs:
     dependency: transitive
     description:
@@ -352,6 +373,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.3.1"
+  intl:
+    dependency: transitive
+    description:
+      name: intl
+      sha256: "1ca20c894b1717686a2319b8548763d812bc0aabdac580420a44c5178c57a867"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.20.3"
   io:
     dependency: transitive
     description:
@@ -464,6 +493,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.13.0"
+  material_ui:
+    dependency: transitive
+    description:
+      name: material_ui
+      sha256: a6b19012df437a356cbc01f8ea22a105e07194c47c9a6009da0032a0ce35c4ab
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.11.1"
   melos:
     dependency: "direct dev"
     description:
@@ -496,6 +533,30 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.6"
+  native_toolchain_c:
+    dependency: transitive
+    description:
+      name: native_toolchain_c
+      sha256: "120b6fc66acd8a5ddeaeb1e59b78836bb3ec9919bd9d9dfb1e2401985710c2c0"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.19.6"
+  nativeapi:
+    dependency: transitive
+    description:
+      name: nativeapi
+      sha256: c0c566cf6788a6b6a32ce2666f02364b7fb50133f07a744bc1e793b5b8bb2c78
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.6.1"
+  nativeapi_flutter:
+    dependency: transitive
+    description:
+      name: nativeapi_flutter
+      sha256: "3bb647f299932a4a19aa066051aabc6872f6876fa50c38a0ef132da414e9db26"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.6.1"
   objective_c:
     dependency: transitive
     description:
@@ -744,46 +805,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.1.1"
-  screen_retriever:
-    dependency: transitive
-    description:
-      name: screen_retriever
-      sha256: ace919117a7520c13a50a6259e60c4a0d4cbe98809468792a91b5c5adada2aa6
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.2.2"
-  screen_retriever_linux:
-    dependency: transitive
-    description:
-      name: screen_retriever_linux
-      sha256: "7b52006a5ceae1f3d5af7f77188c3290d6e7d8ded16d99809bea84967c65c257"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.2.2"
-  screen_retriever_macos:
-    dependency: transitive
-    description:
-      name: screen_retriever_macos
-      sha256: a1489b99cce597c45a54b9aae1cd94c8d4705353b7e0bb2457a6e4de44e0ad8a
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.2.2"
-  screen_retriever_platform_interface:
-    dependency: transitive
-    description:
-      name: screen_retriever_platform_interface
-      sha256: "94a5535277510a63184ca178ce12a1449bc0b38618879aa1c18bf57369c5064a"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.2.2"
-  screen_retriever_windows:
-    dependency: transitive
-    description:
-      name: screen_retriever_windows
-      sha256: dafc6922b0bfbf1d48cf3ccbf519b4fff47bdcb820da1728ea6db675fecc9324
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.2.2"
   shared_preferences:
     dependency: transitive
     description:
@@ -1153,10 +1174,10 @@ packages:
     dependency: transitive
     description:
       name: window_manager
-      sha256: "05c231fd7b23d2380f14c5cc10b7b93d60d4fa4a2fb4e0f032de27e44b5560e9"
+      sha256: "43fc05da6cf670b456a758c88b60e2c1371fc32e1030aac308d0087d87c9368d"
       url: "https://pub.dev"
     source: hosted
-    version: "0.5.2"
+    version: "0.7.0"
   xdg_directories:
     dependency: transitive
     description:
@@ -1199,4 +1220,4 @@ packages:
     version: "3.0.0-dev.3"
 sdks:
   dart: ">=3.14.0 <4.0.0"
-  flutter: ">=3.47.0"
+  flutter: ">=3.50.0"

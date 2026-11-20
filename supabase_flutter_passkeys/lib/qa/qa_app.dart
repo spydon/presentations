@@ -1,9 +1,6 @@
 import 'dart:async';
 
-// flutter_deck is built on package:flutter/material.dart, so the app has to
-// use the same library rather than package:material_ui.
-// ignore: deprecated_member_use
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:supabase_flutter_passkeys/qa/ask_page.dart';
 import 'package:supabase_flutter_passkeys/qa/login_page.dart';
 import 'package:supabase_flutter_passkeys/qa/passkey_auth.dart';
