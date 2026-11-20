@@ -5,6 +5,7 @@ import 'package:flutter_deck/flutter_deck.dart';
 // ignore: deprecated_member_use
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter_passkeys/deck/slides/code_slides.dart';
+import 'package:supabase_flutter_passkeys/deck/slides/crypto_slide.dart';
 import 'package:supabase_flutter_passkeys/deck/slides/intro_slides.dart';
 import 'package:supabase_flutter_passkeys/deck/slides/qa_slide.dart';
 import 'package:supabase_flutter_passkeys/deck/slides/setup_slides.dart';
@@ -17,6 +18,7 @@ class DeckApp extends StatelessWidget {
     TitleSlide(),
     ProblemSlide(),
     WhatIsAPasskeySlide(),
+    AsymmetricCryptographySlide(),
     RegistrationSlide(),
     AuthenticationSlide(),
     WhoDoesWhatSlide(),
