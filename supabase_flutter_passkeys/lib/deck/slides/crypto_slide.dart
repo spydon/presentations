@@ -54,9 +54,10 @@ class _KeyPairRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SizedBox(
-      height: 220,
+    // As tall as the taller card, so that both cards and the link line up.
+    return const IntrinsicHeight(
       child: Row(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Expanded(
             child: _KeyCard(
