@@ -8,6 +8,7 @@ class WhoDoesWhatSlide extends FlutterDeckSlideWidget {
         configuration: const FlutterDeckSlideConfiguration(
           route: '/who-does-what',
           title: 'Who does what',
+          steps: 3,
           header: FlutterDeckHeaderConfiguration(title: 'Three moving parts'),
           speakerNotes:
               '- Supabase Auth is the relying party server: challenges, verification, storage.\n'
@@ -19,44 +20,49 @@ class WhoDoesWhatSlide extends FlutterDeckSlideWidget {
   @override
   Widget build(BuildContext context) {
     return FlutterDeckSlide.blank(
-      builder: (context) => const Center(
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Expanded(
-              child: InfoTile(
-                icon: Icons.dns_outlined,
-                title: 'Supabase Auth',
-                text:
-                    'The relying party. Issues challenges, verifies credentials, '
-                    'stores public keys and creates sessions.',
-                direction: Axis.vertical,
+      // Highlights the part the speaker notes are about.
+      builder: (context) => FlutterDeckSlideStepsBuilder(
+        builder: (context, step) => Center(
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Expanded(
+                child: InfoTile(
+                  icon: Icons.dns_outlined,
+                  title: 'Supabase Auth',
+                  text:
+                      'The relying party. Issues challenges, verifies credentials, '
+                      'stores public keys and creates sessions.',
+                  highlighted: step == 1,
+                  direction: Axis.vertical,
+                ),
               ),
-            ),
-            SizedBox(width: 32),
-            Expanded(
-              child: InfoTile(
-                icon: Icons.flutter_dash,
-                title: 'supabase_flutter',
-                text:
-                    'registerPasskey() and signInWithPasskey() run the whole '
-                    'ceremony for you.',
-                highlighted: true,
-                direction: Axis.vertical,
+              const SizedBox(width: 32),
+              Expanded(
+                child: InfoTile(
+                  icon: Icons.flutter_dash,
+                  title: 'supabase_flutter',
+                  text:
+                      'registerPasskey() and signInWithPasskey() run the whole '
+                      'ceremony for you.',
+                  highlighted: step == 2,
+                  direction: Axis.vertical,
+                ),
               ),
-            ),
-            SizedBox(width: 32),
-            Expanded(
-              child: InfoTile(
-                icon: Icons.fingerprint,
-                title: 'passkeys plugin',
-                text:
-                    'PasskeyAuthenticator shows the OS prompt on Android, iOS, '
-                    'macOS, Windows and web.',
-                direction: Axis.vertical,
+              const SizedBox(width: 32),
+              Expanded(
+                child: InfoTile(
+                  icon: Icons.fingerprint,
+                  title: 'passkeys plugin',
+                  text:
+                      'PasskeyAuthenticator shows the OS prompt on Android, iOS, '
+                      'macOS, Windows and web.',
+                  highlighted: step == 3,
+                  direction: Axis.vertical,
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

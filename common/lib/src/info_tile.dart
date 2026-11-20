@@ -42,14 +42,7 @@ class InfoTile extends StatelessWidget {
     return AnimatedContainer(
       duration: const Duration(milliseconds: 300),
       padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 24),
-      decoration: BoxDecoration(
-        color: Brand.surface,
-        borderRadius: BorderRadius.circular(24),
-        border: Border.all(
-          color: highlighted ? Brand.green : Brand.surfaceHigh,
-          width: highlighted ? 3 : 1,
-        ),
-      ),
+      decoration: Brand.card(highlighted: highlighted),
       child: switch (direction) {
         Axis.horizontal => Row(
           crossAxisAlignment: CrossAxisAlignment.start,

@@ -31,7 +31,10 @@ class AsymmetricCryptographySlide extends FlutterDeckSlideWidget {
         builder: (context, step) => Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            _Reveal(visible: step >= 1, child: const _KeyPairRow()),
+            _Reveal(
+              visible: step >= 1,
+              child: _KeyPairRow(step: step),
+            ),
             _SignAndVerifyRow(step: step),
             _Reveal(
               visible: step >= 4,
@@ -48,14 +51,18 @@ class AsymmetricCryptographySlide extends FlutterDeckSlideWidget {
   }
 }
 
-/// The private and the public key, joined by the link between them.
+/// The private and the public key, joined by the link between them. The key
+/// in use is highlighted: both while they are introduced, the private key
+/// while signing and the public key from verifying on.
 class _KeyPairRow extends StatelessWidget {
-  const _KeyPairRow();
+  const _KeyPairRow({required this.step});
+
+  final int step;
 
   @override
   Widget build(BuildContext context) {
     // As tall as the taller card, so that both cards and the link line up.
-    return const IntrinsicHeight(
+    return IntrinsicHeight(
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
@@ -66,9 +73,10 @@ class _KeyPairRow extends StatelessWidget {
               title: 'Private key',
               text: 'Signs. Never leaves your device.',
               isPrivate: true,
+              highlighted: step <= 2,
             ),
           ),
-          SizedBox(width: 280, child: _KeyLink()),
+          const SizedBox(width: 280, child: _KeyLink()),
           Expanded(
             child: _KeyCard(
               icon: Icons.key_rounded,
@@ -76,6 +84,7 @@ class _KeyPairRow extends StatelessWidget {
               title: 'Public key',
               text: 'Verifies. Safe to give to anyone.',
               isPrivate: false,
+              highlighted: step != 2,
             ),
           ),
         ],
@@ -91,6 +100,7 @@ class _KeyCard extends StatelessWidget {
     required this.title,
     required this.text,
     required this.isPrivate,
+    required this.highlighted,
   });
 
   final IconData icon;
@@ -98,43 +108,29 @@ class _KeyCard extends StatelessWidget {
   final String title;
   final String text;
   final bool isPrivate;
+  final bool highlighted;
 
   @override
   Widget build(BuildContext context) {
-    final color = isPrivate ? Brand.green : Brand.text;
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 28),
-      decoration: BoxDecoration(
-        color: Brand.surface,
-        borderRadius: BorderRadius.circular(28),
-        border: Border.all(
-          color: isPrivate ? Brand.green : Brand.surfaceHigh,
-          width: isPrivate ? 3 : 1.5,
-        ),
-        boxShadow: [
-          if (isPrivate)
-            BoxShadow(
-              color: Brand.green.withValues(alpha: 0.25),
-              blurRadius: 48,
-              spreadRadius: 2,
-            ),
-        ],
-      ),
+    return AnimatedContainer(
+      duration: const Duration(milliseconds: 300),
+      padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 24),
+      decoration: Brand.card(highlighted: highlighted),
       child: Row(
         children: [
           Stack(
             clipBehavior: Clip.none,
             children: [
               Container(
-                width: 128,
-                height: 128,
+                width: 120,
+                height: 120,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  color: color.withValues(alpha: 0.12),
+                  color: Brand.green.withValues(alpha: 0.12),
                 ),
                 child: Transform.rotate(
                   angle: isPrivate ? -math.pi / 4 : math.pi * 3 / 4,
-                  child: Icon(icon, size: 80, color: color),
+                  child: Icon(icon, size: 72, color: Brand.green),
                 ),
               ),
               Positioned(
@@ -147,12 +143,12 @@ class _KeyCard extends StatelessWidget {
                     color: Brand.surfaceHigh,
                     border: Border.all(color: Brand.surface, width: 4),
                   ),
-                  child: Icon(badge, size: 32, color: color),
+                  child: Icon(badge, size: 32, color: Brand.green),
                 ),
               ),
             ],
           ),
-          const SizedBox(width: 36),
+          const SizedBox(width: 28),
           Expanded(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -160,17 +156,16 @@ class _KeyCard extends StatelessWidget {
               children: [
                 Text(
                   title,
-                  style: TextStyle(
-                    fontSize: 44,
+                  style: const TextStyle(
+                    fontSize: 34,
                     fontWeight: FontWeight.bold,
-                    color: color,
                   ),
                 ),
                 const SizedBox(height: 8),
                 Text(
                   text,
                   style: const TextStyle(
-                    fontSize: 30,
+                    fontSize: 26,
                     color: Brand.mutedText,
                     height: 1.3,
                   ),
@@ -283,11 +278,12 @@ class _SignAndVerifyRow extends StatelessWidget {
           _Reveal(
             visible: step >= 2,
             delay: const Duration(milliseconds: 500),
-            child: const _DataCard(
+            child: _DataCard(
               icon: Icons.draw_outlined,
               title: 'Signature',
               data: '3045 0221 00c8\n9be1 4f07 …',
-              highlighted: true,
+              // Made by signing, and checked when verifying.
+              highlighted: step == 2 || step == 3,
             ),
           ),
           Expanded(
@@ -295,7 +291,7 @@ class _SignAndVerifyRow extends StatelessWidget {
               visible: step >= 3,
               icon: Icons.key_rounded,
               label: 'verify with\npublic key',
-              color: Brand.text,
+              color: Brand.green,
             ),
           ),
           SizedBox(
@@ -328,33 +324,23 @@ class _DataCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return AnimatedContainer(
+      duration: const Duration(milliseconds: 300),
       width: 400,
-      padding: const EdgeInsets.all(28),
-      decoration: BoxDecoration(
-        color: Brand.surface,
-        borderRadius: BorderRadius.circular(24),
-        border: Border.all(
-          color: highlighted ? Brand.green : Brand.surfaceHigh,
-          width: highlighted ? 3 : 1.5,
-        ),
-      ),
+      padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 24),
+      decoration: Brand.card(highlighted: highlighted),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
             children: [
-              Icon(
-                icon,
-                size: 44,
-                color: highlighted ? Brand.green : Brand.text,
-              ),
+              Icon(icon, size: 44, color: Brand.green),
               const SizedBox(width: 16),
               Text(
                 title,
                 style: const TextStyle(
-                  fontSize: 36,
+                  fontSize: 34,
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -374,7 +360,7 @@ class _DataCard extends StatelessWidget {
                 fontFamily: Brand.monospaceFontFamily,
                 fontSize: 26,
                 height: 1.4,
-                color: highlighted ? Brand.green : Brand.mutedText,
+                color: Brand.mutedText,
               ),
             ),
           ),

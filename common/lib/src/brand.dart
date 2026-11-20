@@ -14,6 +14,27 @@ abstract final class Brand {
   static const text = Color(0xFFEDEDED);
   static const mutedText = Color(0xFFA0A0A0);
 
+  /// The box of a card on a slide, such as an [InfoTile].
+  ///
+  /// A [highlighted] card gets a thick green border and a soft green glow,
+  /// and the text keeps its colors. The border is drawn outside the card, so
+  /// that its width does not move the content when the highlight changes.
+  static BoxDecoration card({bool highlighted = false}) => BoxDecoration(
+    color: surface,
+    borderRadius: BorderRadius.circular(24),
+    border: Border.all(
+      color: highlighted ? green : surfaceHigh,
+      width: highlighted ? 3 : 1,
+      strokeAlign: BorderSide.strokeAlignOutside,
+    ),
+    boxShadow: [
+      BoxShadow(
+        color: green.withValues(alpha: highlighted ? 0.2 : 0),
+        blurRadius: 40,
+      ),
+    ],
+  );
+
   static ThemeData get theme {
     final scheme = ColorScheme.fromSeed(
       seedColor: green,

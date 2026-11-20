@@ -148,17 +148,24 @@ class WhatIsAPasskeySlide extends FlutterDeckSlideWidget {
           'Unlocked with Face ID, fingerprint or PIN',
         ],
       ),
-      rightBuilder: (context) => const Center(child: _KeyPairDiagram()),
+      rightBuilder: (context) => FlutterDeckSlideStepsBuilder(
+        builder: (context, step) => Center(child: _KeyPairDiagram(step: step)),
+      ),
     );
   }
 }
 
+/// Where the keys live, highlighting the side the current bullet is about.
 class _KeyPairDiagram extends StatelessWidget {
-  const _KeyPairDiagram();
+  const _KeyPairDiagram({required this.step});
+
+  final int step;
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    // Only the second bullet, about the public key, is about the server.
+    final isServerStep = step == 2;
+    return Column(
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
@@ -166,10 +173,10 @@ class _KeyPairDiagram extends StatelessWidget {
           icon: Icons.smartphone,
           title: 'Your device',
           text: 'Private key. Never leaves the device or the password manager.',
-          highlighted: true,
+          highlighted: !isServerStep,
           direction: Axis.vertical,
         ),
-        Padding(
+        const Padding(
           padding: EdgeInsets.symmetric(vertical: 16),
           child: Icon(Icons.swap_vert, size: 64, color: Brand.mutedText),
         ),
@@ -177,6 +184,7 @@ class _KeyPairDiagram extends StatelessWidget {
           icon: Icons.dns_outlined,
           title: 'Supabase Auth',
           text: 'Public key. Useless to an attacker on its own.',
+          highlighted: isServerStep,
           direction: Axis.vertical,
         ),
       ],
