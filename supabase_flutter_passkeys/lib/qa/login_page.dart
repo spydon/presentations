@@ -38,7 +38,10 @@ class _LoginPageState extends State<LoginPage> {
   void _create() {
     final name = _nameController.text.trim();
     if (name.isEmpty) {
-      setState(() => _error = 'Pick a name to show next to your questions.');
+      setState(
+        () => _error =
+            'Pick a name to show on the slide and next to your questions.',
+      );
       return;
     }
     _run(() => createAccountWithPasskey(name));

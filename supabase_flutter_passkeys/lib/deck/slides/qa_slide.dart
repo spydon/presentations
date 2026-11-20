@@ -3,6 +3,7 @@ import 'package:material_ui/material_ui.dart';
 import 'package:supabase_flutter_passkeys/config.dart';
 import 'package:supabase_flutter_passkeys/deck/widgets/live_questions.dart';
 import 'package:supabase_flutter_passkeys/deck/widgets/passkey_counter.dart';
+import 'package:supabase_flutter_passkeys/deck/widgets/passkey_creators_ticker.dart';
 import 'package:common/common.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 
@@ -16,6 +17,7 @@ class QaSlide extends FlutterDeckSlideWidget {
           speakerNotes:
               '- Scan, pick a name, create a passkey, ask.\n'
               '- Questions appear here in real time, newest on top with a green border.\n'
+              '- The names of everyone with a passkey scroll along the bottom.\n'
               '- Delete bad ones from the Supabase dashboard if needed.',
         ),
       );
@@ -24,53 +26,63 @@ class QaSlide extends FlutterDeckSlideWidget {
   Widget build(BuildContext context) {
     final url = Config.qaUrl;
     return FlutterDeckSlide.blank(
-      builder: (context) => Row(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
+      builder: (context) => Column(
         children: [
-          SizedBox(
-            width: 620,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const Text(
-                  'Questions?',
-                  style: TextStyle(fontSize: 88, fontWeight: FontWeight.bold),
-                ),
-                const SizedBox(height: 12),
-                const Text(
-                  'Scan, create a passkey, ask.',
-                  style: TextStyle(fontSize: 38, color: Brand.mutedText),
-                ),
-                const SizedBox(height: 40),
-                Container(
-                  padding: const EdgeInsets.all(24),
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(28),
-                  ),
-                  child: QrImageView(
-                    data: url,
-                    size: 420,
-                    padding: EdgeInsets.zero,
-                    backgroundColor: Colors.white,
-                    errorCorrectionLevel: QrErrorCorrectLevel.M,
-                  ),
-                ),
-                const SizedBox(height: 28),
-                SelectableText(
-                  url.replaceFirst(RegExp('^https?://'), ''),
-                  style: const TextStyle(fontSize: 28, color: Brand.green),
-                ),
-                const SizedBox(height: 48),
-                const PasskeyCounter(),
-              ],
-            ),
-          ),
-          const SizedBox(width: 64),
-          const Expanded(child: LiveQuestions()),
+          Expanded(child: _questions(url)),
+          const SizedBox(height: 24),
+          const PasskeyCreatorsTicker(),
         ],
       ),
+    );
+  }
+
+  Widget _questions(String url) {
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        SizedBox(
+          width: 620,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Text(
+                'Questions?',
+                style: TextStyle(fontSize: 88, fontWeight: FontWeight.bold),
+              ),
+              const SizedBox(height: 12),
+              const Text(
+                'Scan, create a passkey, ask.',
+                style: TextStyle(fontSize: 38, color: Brand.mutedText),
+              ),
+              const SizedBox(height: 40),
+              Container(
+                padding: const EdgeInsets.all(24),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(28),
+                ),
+                child: QrImageView(
+                  data: url,
+                  size: 340,
+                  padding: EdgeInsets.zero,
+                  backgroundColor: Colors.white,
+                  errorCorrectionLevel: QrErrorCorrectLevel.M,
+                ),
+              ),
+              const SizedBox(height: 28),
+              SelectableText(
+                url.replaceFirst(RegExp('^https?://'), ''),
+                style: const TextStyle(fontSize: 28, color: Brand.green),
+              ),
+              const SizedBox(height: 48),
+              const PasskeyCounter(),
+            ],
+          ),
+        ),
+        const SizedBox(width: 64),
+        const Expanded(child: LiveQuestions()),
+      ],
     );
   }
 }
