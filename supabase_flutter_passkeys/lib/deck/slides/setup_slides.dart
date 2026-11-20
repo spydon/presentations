@@ -9,7 +9,7 @@ class WhoDoesWhatSlide extends FlutterDeckSlideWidget {
           route: '/who-does-what',
           title: 'Who does what',
           steps: 3,
-          header: FlutterDeckHeaderConfiguration(title: 'Three moving parts'),
+          header: FlutterDeckHeaderConfiguration(title: 'Who does what'),
           speakerNotes:
               '- Supabase Auth is the relying party server: challenges, verification, storage.\n'
               '- supabase_flutter glues the two ceremonies together.\n'
