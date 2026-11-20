@@ -32,6 +32,7 @@ class DeckApp extends StatelessWidget {
     ManageSlide(),
     GotchasSlide(),
     ThisDemoSlide(),
+    WithoutTypedApiSlide(),
     QaSlide(),
   ];
 

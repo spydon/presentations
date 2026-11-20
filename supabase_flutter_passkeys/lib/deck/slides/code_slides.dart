@@ -305,37 +305,108 @@ class ThisDemoSlide extends FlutterDeckSlideWidget {
               '- One Flutter web build: the slides, and the audience page under ?qa.\n'
               '- Guest user with a generated email, then registerPasskey. The passkey is the only credential.\n'
               '- RLS: anyone reads, only signed in non-anonymous users insert as themselves.\n'
-              '- The slide listens with a typed realtime stream().',
+              '- The slide listens with a typed realtime stream().\n'
+              '- All of this uses the new typesafe API, a sneak peek of what else is coming in supabase_flutter v3.',
         ),
       );
 
   @override
   Widget build(BuildContext context) {
-    return FlutterDeckSlide.split(
-      splitRatio: const SplitSlideRatio(left: 1, right: 1),
-      leftBuilder: (context) => const Center(
-        child: SlideCode(
-          fileName: 'ask_page.dart',
-          fontSize: 24,
-          code: '''
+    return FlutterDeckSlide.blank(
+      builder: (context) => const Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Expanded(
+                child: SlideCode(
+                  fileName: 'ask_page.dart',
+                  fontSize: 24,
+                  code: '''
 await supabase.table(Questions.table).insert(
   QuestionsInsert(
     authorName: name,
     content: content,
   ),
 );''',
-        ),
-      ),
-      rightBuilder: (context) => const Center(
-        child: SlideCode(
-          fileName: 'live_questions.dart',
-          fontSize: 24,
-          code: '''
+                ),
+              ),
+              SizedBox(width: DeckInsets.splitGap),
+              Expanded(
+                child: SlideCode(
+                  fileName: 'live_questions.dart',
+                  fontSize: 24,
+                  code: '''
 final questions = supabase
     .table(Questions.table)
     .stream(primaryKey: [Questions.id])
     .order(Questions.createdAt.desc())
     .limit(50);''',
+                ),
+              ),
+            ],
+          ),
+          SizedBox(height: 64),
+          Pill(
+            icon: Icons.auto_awesome,
+            text: 'A sneak peek of the new typesafe API in supabase_flutter v3',
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class WithoutTypedApiSlide extends FlutterDeckSlideWidget {
+  const WithoutTypedApiSlide({super.key})
+    : super(
+        configuration: const FlutterDeckSlideConfiguration(
+          route: '/without-typed-api',
+          title: 'Without the typesafe API',
+          steps: 2,
+          header: FlutterDeckHeaderConfiguration(
+            title: 'The same Q&A without the typesafe API',
+          ),
+          speakerNotes:
+              '- This is how the same two calls look with the stringly typed from() API.\n'
+              '- Table and column names are plain strings, so a typo compiles and fails at runtime.\n'
+              '- Rows come back as Map<String, dynamic>: every read needs a cast, and timestamps need parsing by hand.\n'
+              '- With the generated schema the compiler catches all of this.',
+        ),
+      );
+
+  @override
+  Widget build(BuildContext context) {
+    return FlutterDeckSlide.split(
+      leftBuilder: (context) => const ComparisonCode(
+        label: 'Writing: a plain map',
+        isAfter: false,
+        code: '''
+await supabase.from('questions').insert({
+  'author_name': name,
+  'content': content,
+});
+
+// A typo like 'autor_name' compiles,
+// then fails at runtime.''',
+      ),
+      rightBuilder: (context) => FlutterDeckSlideStepsBuilder(
+        builder: (context, step) => ComparisonCode(
+          label: 'Reading: strings and casts',
+          isAfter: false,
+          visible: step >= 2,
+          code: '''
+final questions = supabase
+    .from('questions')
+    .stream(primaryKey: ['id'])
+    .order('created_at', ascending: false)
+    .limit(50);
+
+// Every row is a Map<String, dynamic>:
+final name = row['author_name'] as String;
+final createdAt =
+    DateTime.parse(row['created_at'] as String);''',
         ),
       ),
     );
