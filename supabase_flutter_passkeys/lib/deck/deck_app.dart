@@ -2,6 +2,7 @@ import 'package:common/common.dart';
 import 'package:flutter_deck/flutter_deck.dart';
 import 'package:material_ui/material_ui.dart';
 import 'package:supabase_flutter_passkeys/deck/slides/code_slides.dart';
+import 'package:supabase_flutter_passkeys/deck/slides/corbado_slide.dart';
 import 'package:supabase_flutter_passkeys/deck/slides/crypto_slide.dart';
 import 'package:supabase_flutter_passkeys/deck/slides/intro_slides.dart';
 import 'package:supabase_flutter_passkeys/deck/slides/qa_slide.dart';
@@ -20,6 +21,7 @@ class DeckApp extends StatelessWidget {
     RegistrationSlide(),
     AuthenticationSlide(),
     WhoDoesWhatSlide(),
+    CorbadoSlide(),
     DashboardSetupSlide(),
     PlatformSetupSlide(),
     InstallSlide(),
